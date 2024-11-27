@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
                     watcher[i].Filter = "*.*";
 
                     watcher[i].Created += OnCreated;
-                    //watcher.Changed += OnChanged;
+                    //watcher[i].Changed += OnChanged;
                     watcher[i].Deleted += OnDeleted;
                     watcher[i].Renamed += OnRenamed;
                 }     
@@ -122,8 +122,9 @@ namespace WindowsFormsApp1
         //function onchange
         //private void OnChanged(object sender, FileSystemEventArgs e)
         //{
-        //    this.Invoke((MethodInvoker)delegate {
-        //        Log_richTextBox.Text += $"[ {DateTime.Now.ToLocalTime()} ] File/Folder: {e.Name} bi thay doi  {DateTime.Now.ToLocalTime()}\n";
+        //    this.Invoke((MethodInvoker)delegate
+        //    {
+        //        Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n {e.Name} đã thay đổi \n";
         //        UpdateFileList(watcher.Path, e);
         //    });
         //}
@@ -133,6 +134,7 @@ namespace WindowsFormsApp1
             this.Invoke((MethodInvoker)delegate
             {
                 Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n {e.Name} được tạo \n";
+                
                 //UpdateFileList(watcher.Path, e);
             });
         }
