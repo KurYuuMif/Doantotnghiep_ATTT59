@@ -71,8 +71,6 @@ namespace WindowsFormsApp1
                 }     
             }
             catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
-
-
         }
 
         //////////  START UP WITH WINDOWS
@@ -159,8 +157,6 @@ namespace WindowsFormsApp1
         {
 
         }
-
-
         private void AddFile_Button_Click(object sender, EventArgs e)
         {
             try
@@ -191,7 +187,6 @@ namespace WindowsFormsApp1
                     //UpdateFileList(path, null);
 
                     cbb_filepath.Items.Add(path);
-
 
                     path = null;
                 }
@@ -253,9 +248,7 @@ namespace WindowsFormsApp1
                             MessageBox.Show("Ngừng theo dõi: " + deleted_path, "DeletePath ");
                         }
                     }
-                    else { MessageBox.Show("Vui lòng nhập đường dẫn"); }
-
-                    
+                    else { MessageBox.Show("Vui lòng nhập đường dẫn"); } 
                 }
             }
             catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
