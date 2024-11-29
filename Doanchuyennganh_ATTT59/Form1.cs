@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
                     watcher[i].Renamed += OnRenamed;
                 }     
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
 
         //////////  START UP WITH WINDOWS
@@ -91,7 +91,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Ứng dụng đã được đăng ký để tự động khởi động cùng Windows.", "START UP WITH WINDOWS");
                 }
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
 
         //function update filelist listbox
@@ -208,7 +208,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Thư mục không tồn tại!", "Lỗi");
                 }
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
 
         }
 
@@ -219,7 +219,7 @@ namespace WindowsFormsApp1
                 Log_richTextBox.Text = null;
                 MessageBox.Show("Refresh thành công! ", "Refresh");
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
 
         private void DeletePath_Button_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace WindowsFormsApp1
                     else { MessageBox.Show("Vui lòng nhập đường dẫn"); } 
                 }
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
 
         private void Log_richTextBox_TextChanged(object sender, EventArgs e)
@@ -295,7 +295,7 @@ namespace WindowsFormsApp1
                     FilePath_textBox.Text = folderBrowserDialog.SelectedPath;
                 }
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
         public static bool ContainsSubstring(string target, string searchTerm)
         {
@@ -328,7 +328,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
        
         private void btn_log_Click(object sender, EventArgs e)
@@ -338,7 +338,7 @@ namespace WindowsFormsApp1
                 fm2 = new Form_Exportlog();
                 fm2.ShowDialog();
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
 
         private void cbb_filepath_SelectedIndexChanged(object sender, EventArgs e)
@@ -388,7 +388,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            catch (Exception ex) { Console.WriteLine($"Lỗi: {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
 
         //FilePath_textBox
