@@ -305,16 +305,48 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Thanh tìm kiếm trống!", "Lỗi");
                 else
                 {
-                    int i = listBoxFiles.Items.Count;
-                    while (i != 0)
-                    {
-                        if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), txt_search.Text) == false)
-                        {
-                            listBoxFiles.Items.RemoveAt(i - 1);
-                            i--;
-                        }
-                        else i--;
-                    }
+                    if (ckbox_docx.Checked) { }
+                    else if (ckbox_docx.Checked && ckbox_pdf.Checked){ }
+                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked) { }
+                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked) { }
+                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { }
+                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
+                    else 
+                    if (ckbox_pdf.Checked){ }
+                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked) { }
+                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked) { }
+                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { }
+                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
+                    else
+                    if (ckbox_pptx.Checked) { }
+                    else if (ckbox_pptx.Checked && ckbox_rar.Checked) { }
+                    else if (ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { }
+                    else if (ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
+                    else
+                    if (ckbox_rar.Checked) { }
+                    else if (ckbox_rar.Checked && ckbox_txt.Checked) { }
+                    else if (ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
+                    else
+                    if (ckbox_txt.Checked) { }
+                    else if (ckbox_txt.Checked && ckbox_xlsx.Checked) { }
+                    else
+                    if ( ckbox_xlsx.Checked) { }
+
+
+
+
+                    //int i = listBoxFiles.Items.Count;
+                    //while (i != 0)
+                    //{
+                    //    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "Folder") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "folder") == true) { i--; }
+                    //    else 
+                    //    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), txt_search.Text) == false )
+                    //    {
+                    //        listBoxFiles.Items.RemoveAt(i - 1);
+                    //        i--;
+                    //    }
+                    //    else i--;
+                    //}
                 }
             }
             catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }

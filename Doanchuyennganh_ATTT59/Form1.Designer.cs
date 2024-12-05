@@ -45,6 +45,12 @@ namespace WindowsFormsApp1
             this.cbb_filepath = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ckbox_docx = new System.Windows.Forms.CheckBox();
+            this.ckbox_pdf = new System.Windows.Forms.CheckBox();
+            this.ckbox_txt = new System.Windows.Forms.CheckBox();
+            this.ckbox_pptx = new System.Windows.Forms.CheckBox();
+            this.ckbox_xlsx = new System.Windows.Forms.CheckBox();
+            this.ckbox_rar = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Refresh_Button
@@ -141,9 +147,9 @@ namespace WindowsFormsApp1
             // 
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.ItemHeight = 16;
-            this.listBoxFiles.Location = new System.Drawing.Point(859, 207);
+            this.listBoxFiles.Location = new System.Drawing.Point(859, 239);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(349, 308);
+            this.listBoxFiles.Size = new System.Drawing.Size(349, 276);
             this.listBoxFiles.TabIndex = 8;
             // 
             // Log_richTextBox
@@ -244,11 +250,77 @@ namespace WindowsFormsApp1
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
+            // ckbox_docx
+            // 
+            this.ckbox_docx.AutoSize = true;
+            this.ckbox_docx.Location = new System.Drawing.Point(859, 203);
+            this.ckbox_docx.Name = "ckbox_docx";
+            this.ckbox_docx.Size = new System.Drawing.Size(61, 20);
+            this.ckbox_docx.TabIndex = 53;
+            this.ckbox_docx.Text = ".docx";
+            this.ckbox_docx.UseVisualStyleBackColor = true;
+            // 
+            // ckbox_pdf
+            // 
+            this.ckbox_pdf.AutoSize = true;
+            this.ckbox_pdf.Location = new System.Drawing.Point(919, 203);
+            this.ckbox_pdf.Name = "ckbox_pdf";
+            this.ckbox_pdf.Size = new System.Drawing.Size(51, 20);
+            this.ckbox_pdf.TabIndex = 54;
+            this.ckbox_pdf.Text = ".pdf";
+            this.ckbox_pdf.UseVisualStyleBackColor = true;
+            // 
+            // ckbox_txt
+            // 
+            this.ckbox_txt.AutoSize = true;
+            this.ckbox_txt.Location = new System.Drawing.Point(1093, 203);
+            this.ckbox_txt.Name = "ckbox_txt";
+            this.ckbox_txt.Size = new System.Drawing.Size(44, 20);
+            this.ckbox_txt.TabIndex = 55;
+            this.ckbox_txt.Text = ".txt";
+            this.ckbox_txt.UseVisualStyleBackColor = true;
+            // 
+            // ckbox_pptx
+            // 
+            this.ckbox_pptx.AutoSize = true;
+            this.ckbox_pptx.Location = new System.Drawing.Point(976, 203);
+            this.ckbox_pptx.Name = "ckbox_pptx";
+            this.ckbox_pptx.Size = new System.Drawing.Size(57, 20);
+            this.ckbox_pptx.TabIndex = 56;
+            this.ckbox_pptx.Text = ".pptx";
+            this.ckbox_pptx.UseVisualStyleBackColor = true;
+            // 
+            // ckbox_xlsx
+            // 
+            this.ckbox_xlsx.AutoSize = true;
+            this.ckbox_xlsx.Location = new System.Drawing.Point(1141, 203);
+            this.ckbox_xlsx.Name = "ckbox_xlsx";
+            this.ckbox_xlsx.Size = new System.Drawing.Size(54, 20);
+            this.ckbox_xlsx.TabIndex = 57;
+            this.ckbox_xlsx.Text = ".xlsx";
+            this.ckbox_xlsx.UseVisualStyleBackColor = true;
+            // 
+            // ckbox_rar
+            // 
+            this.ckbox_rar.AutoSize = true;
+            this.ckbox_rar.Location = new System.Drawing.Point(1039, 203);
+            this.ckbox_rar.Name = "ckbox_rar";
+            this.ckbox_rar.Size = new System.Drawing.Size(48, 20);
+            this.ckbox_rar.TabIndex = 58;
+            this.ckbox_rar.Text = ".rar";
+            this.ckbox_rar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 555);
+            this.Controls.Add(this.ckbox_rar);
+            this.Controls.Add(this.ckbox_xlsx);
+            this.Controls.Add(this.ckbox_pptx);
+            this.Controls.Add(this.ckbox_txt);
+            this.Controls.Add(this.ckbox_pdf);
+            this.Controls.Add(this.ckbox_docx);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbb_filepath);
@@ -291,6 +363,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.ComboBox cbb_filepath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox ckbox_docx;
+        private System.Windows.Forms.CheckBox ckbox_pdf;
+        private System.Windows.Forms.CheckBox ckbox_txt;
+        private System.Windows.Forms.CheckBox ckbox_pptx;
+        private System.Windows.Forms.CheckBox ckbox_xlsx;
+        private System.Windows.Forms.CheckBox ckbox_rar;
     }
 }
 
