@@ -178,14 +178,12 @@ namespace WindowsFormsApp1
             // txt_search
             // 
             this.txt_search.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_search.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txt_search.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txt_search.Location = new System.Drawing.Point(859, 123);
             this.txt_search.Multiline = true;
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(349, 30);
             this.txt_search.TabIndex = 11;
-            this.txt_search.Text = "Nhập từ khóa";
-            this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
             this.txt_search.Leave += new System.EventHandler(this.txt_search_Leave);
@@ -259,6 +257,7 @@ namespace WindowsFormsApp1
             this.ckbox_docx.TabIndex = 53;
             this.ckbox_docx.Text = ".docx";
             this.ckbox_docx.UseVisualStyleBackColor = true;
+            this.ckbox_docx.CheckedChanged += new System.EventHandler(this.ckbox_docx_CheckedChanged);
             // 
             // ckbox_pdf
             // 
@@ -269,6 +268,7 @@ namespace WindowsFormsApp1
             this.ckbox_pdf.TabIndex = 54;
             this.ckbox_pdf.Text = ".pdf";
             this.ckbox_pdf.UseVisualStyleBackColor = true;
+            this.ckbox_pdf.CheckedChanged += new System.EventHandler(this.ckbox_pdf_CheckedChanged);
             // 
             // ckbox_txt
             // 
@@ -279,6 +279,7 @@ namespace WindowsFormsApp1
             this.ckbox_txt.TabIndex = 55;
             this.ckbox_txt.Text = ".txt";
             this.ckbox_txt.UseVisualStyleBackColor = true;
+            this.ckbox_txt.CheckedChanged += new System.EventHandler(this.ckbox_txt_CheckedChanged);
             // 
             // ckbox_pptx
             // 
@@ -289,6 +290,7 @@ namespace WindowsFormsApp1
             this.ckbox_pptx.TabIndex = 56;
             this.ckbox_pptx.Text = ".pptx";
             this.ckbox_pptx.UseVisualStyleBackColor = true;
+            this.ckbox_pptx.CheckedChanged += new System.EventHandler(this.ckbox_pptx_CheckedChanged);
             // 
             // ckbox_xlsx
             // 
@@ -299,6 +301,7 @@ namespace WindowsFormsApp1
             this.ckbox_xlsx.TabIndex = 57;
             this.ckbox_xlsx.Text = ".xlsx";
             this.ckbox_xlsx.UseVisualStyleBackColor = true;
+            this.ckbox_xlsx.CheckedChanged += new System.EventHandler(this.ckbox_xlsx_CheckedChanged);
             // 
             // ckbox_rar
             // 
@@ -309,6 +312,7 @@ namespace WindowsFormsApp1
             this.ckbox_rar.TabIndex = 58;
             this.ckbox_rar.Text = ".rar";
             this.ckbox_rar.UseVisualStyleBackColor = true;
+            this.ckbox_rar.CheckedChanged += new System.EventHandler(this.ckbox_rar_CheckedChanged);
             // 
             // Form1
             // 

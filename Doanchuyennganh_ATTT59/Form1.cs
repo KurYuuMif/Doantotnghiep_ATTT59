@@ -299,57 +299,73 @@ namespace WindowsFormsApp1
 
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (txt_search.Text == null || txt_search.Text == "Nhập từ khóa")
-                    MessageBox.Show("Thanh tìm kiếm trống!", "Lỗi");
+            //try
+            //{
+                if (cbb_filepath.Items.Count == 0)
+                    MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                else
+                //&& ckbox_docx.Checked == false && ckbox_pdf.Checked == false && ckbox_pptx.Checked == false && ckbox_rar.Checked == false && ckbox_txt.Checked == false && ckbox_xlsx.Checked == false
+                //if (txt_search.Text == "")
+                //    MessageBox.Show("Thanh tìm kiếm trống!", "Lỗi");
+                //else
+                if (cbb_filepath.Text == "")
+                    MessageBox.Show("Chưa chọn đường dẫn!", "Lỗi");
                 else
                 {
-                    if (ckbox_docx.Checked) { }
-                    else if (ckbox_docx.Checked && ckbox_pdf.Checked){ }
-                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked) { }
-                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked) { }
-                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { }
-                    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
-                    else 
-                    if (ckbox_pdf.Checked){ }
-                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked) { }
-                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked) { }
-                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { }
-                    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
-                    else
-                    if (ckbox_pptx.Checked) { }
-                    else if (ckbox_pptx.Checked && ckbox_rar.Checked) { }
-                    else if (ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { }
-                    else if (ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
-                    else
-                    if (ckbox_rar.Checked) { }
-                    else if (ckbox_rar.Checked && ckbox_txt.Checked) { }
-                    else if (ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { }
-                    else
-                    if (ckbox_txt.Checked) { }
-                    else if (ckbox_txt.Checked && ckbox_xlsx.Checked) { }
-                    else
-                    if ( ckbox_xlsx.Checked) { }
+                //int i = listBoxFiles.Items.Count;
+                //while (i != 0)
+                //{
+                //    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "Folder") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "folder") == true) { i--; }
+                //    else
+                //        if (ckbox_docx.Checked && ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".docx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; }
+                //    else if (ckbox_docx.Checked && ckbox_pdf.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_docx.Checked && ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".xlsx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else
+                //    if (ckbox_pdf.Checked && ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true) { i--; }
+                //    else if (ckbox_pdf.Checked && ckbox_pptx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_pdf.Checked && ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".xlsx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else
+                //    if (ckbox_pptx.Checked && ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true) { i--; }
+                //    else if (ckbox_pptx.Checked && ckbox_rar.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_pptx.Checked && ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".xlsx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else
+                //    if (ckbox_rar.Checked && ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; }
+                //    else if (ckbox_rar.Checked && ckbox_txt.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else if (ckbox_rar.Checked && ckbox_txt.Checked && ckbox_xlsx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".xlsx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else
+                //    if (ckbox_txt.Checked && ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; }
+                //    else if (ckbox_txt.Checked && ckbox_xlsx.Checked) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".xlsx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; } }
+                //    else
+                //    if (ckbox_xlsx.Checked && ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), ".xlsx") == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString().ToLower(), txt_search.Text.ToLower()) == true) i--; }
+                //    else if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), txt_search.Text) == false)
+                //    {
+                //        listBoxFiles.Items.RemoveAt(i - 1);
+                //        i--;
+                //    }
+                //    //else i--;
+                //}
 
-
-
-
-                    //int i = listBoxFiles.Items.Count;
-                    //while (i != 0)
-                    //{
-                    //    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "Folder") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "folder") == true) { i--; }
-                    //    else 
-                    //    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), txt_search.Text) == false )
-                    //    {
-                    //        listBoxFiles.Items.RemoveAt(i - 1);
-                    //        i--;
-                    //    }
-                    //    else i--;
-                    //}
+                int i = listBoxFiles.Items.Count;
+                while (i != 0)
+                {
+                    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "Folder") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "folder") == true) { i--; }
+                    else
+                    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), txt_search.Text) == false)
+                    {
+                        listBoxFiles.Items.RemoveAt(i - 1);
+                        i--;
+                    }
+                    else i--;
                 }
             }
-            catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
+            //}
+            //catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
        
         private void btn_log_Click(object sender, EventArgs e)
@@ -394,10 +410,6 @@ namespace WindowsFormsApp1
                     {
                         string path = cbb_filepath.Text;
 
-                        txt_search.Text = "Nhập từ khóa";
-                        txt_search.TextAlign = HorizontalAlignment.Center;
-                        txt_search.ForeColor = Color.Silver;
-
                         if (path == null)
                         {
                             listBoxFiles.Items.Clear();
@@ -405,6 +417,12 @@ namespace WindowsFormsApp1
                         else
                         {
                             UpdateFileList(path, null);
+                            ckbox_docx.Checked = false;
+                            ckbox_pdf.Checked = false;
+                            ckbox_pptx.Checked = false;
+                            ckbox_rar.Checked = false;
+                            ckbox_txt.Checked = false;
+                            ckbox_xlsx.Checked = false; 
                         }
                     }
                 }
@@ -444,25 +462,283 @@ namespace WindowsFormsApp1
         //txt_search
         private void txt_search_Enter(object sender, EventArgs e)
         {
-            if (txt_search.Text == "Nhập từ khóa")
-            {
-                txt_search.Text = "";
-                txt_search.TextAlign = HorizontalAlignment.Left;
-                txt_search.ForeColor = Color.Black;
-            }
+            //if (txt_search.Text == "Nhập từ khóa")
+            //{
+            //    txt_search.Text = "";
+            //    txt_search.TextAlign = HorizontalAlignment.Left;
+            //    txt_search.ForeColor = Color.Black;
+            //}
         }
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            txt_search.TextAlign = HorizontalAlignment.Left;
-            txt_search.ForeColor = Color.Black;
+            //txt_search.TextAlign = HorizontalAlignment.Left;
+            //txt_search.ForeColor = Color.Black;
         }
         private void txt_search_Leave(object sender, EventArgs e)
         {
-            if (txt_search.Text == "")
+            //if (txt_search.Text == "")
+            //{
+            //    txt_search.Text = "Nhập từ khóa";
+            //    txt_search.TextAlign = HorizontalAlignment.Center;
+            //    txt_search.ForeColor = Color.Silver;
+            //}
+        }
+
+        private void update_ckbox()
+        {
+            //if (cbb_filepath.Items.Count == 0)
+            //    MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+            //else
+            //{
+            //    if (cbb_filepath.Text == "") MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+            //    else
+            //    {
+            //        string path = cbb_filepath.Text;
+
+            //        if (path == null) listBoxFiles.Items.Clear();
+            //        else UpdateFileList(path, null);
+            //    }
+            //}
+
+            //int i = listBoxFiles.Items.Count;
+            //while (i != 0)
+            //    if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "Folder") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "folder") == true) { i--; }
+            //    else
+            //        if (ckbox_docx.Checked == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "docx") == true) i--; }
+            //    else if (ckbox_docx.Checked == true && ckbox_pdf.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true) i--; }
+            //    else if (ckbox_docx.Checked == true && ckbox_pdf.Checked == true && ckbox_pptx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true) i--; }
+            //    else if (ckbox_docx.Checked == true && ckbox_pdf.Checked == true && ckbox_pptx.Checked == true && ckbox_rar.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true) i--; }
+            //    else if (ckbox_docx.Checked == true && ckbox_pdf.Checked == true && ckbox_pptx.Checked == true && ckbox_rar.Checked == true && ckbox_txt.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true) i--; }
+            //    else if (ckbox_docx.Checked == true && ckbox_pdf.Checked == true && ckbox_pptx.Checked == true && ckbox_rar.Checked == true && ckbox_txt.Checked == true && ckbox_xlsx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".docx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".xlsx") == true) i--; }
+            //    else
+            //    if (ckbox_pdf.Checked == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "pdf") == true) i--; }
+            //    else if (ckbox_pdf.Checked == true && ckbox_pptx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true) i--; }
+            //    else if (ckbox_pdf.Checked == true && ckbox_pptx.Checked == true && ckbox_rar.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true) i--; }
+            //    else if (ckbox_pdf.Checked == true && ckbox_pptx.Checked == true && ckbox_rar.Checked == true && ckbox_txt.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true) i--; }
+            //    else if (ckbox_pdf.Checked == true && ckbox_pptx.Checked == true && ckbox_rar.Checked == true && ckbox_txt.Checked == true && ckbox_xlsx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pdf") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".xlsx") == true) i--; }
+            //    else
+            //    if (ckbox_pptx.Checked == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "pptx") == true) i--; }
+            //    else if (ckbox_pptx.Checked == true && ckbox_rar.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true) i--; }
+            //    else if (ckbox_pptx.Checked == true && ckbox_rar.Checked == true && ckbox_txt.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true) i--; }
+            //    else if (ckbox_pptx.Checked == true && ckbox_rar.Checked == true && ckbox_txt.Checked == true && ckbox_xlsx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".pptx") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".xlsx") == true) i--; }
+            //    else
+            //    if (ckbox_rar.Checked == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "rar") == true) i--; }
+            //    else if (ckbox_rar.Checked == true && ckbox_txt.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true) i--; }
+            //    else if (ckbox_rar.Checked == true && ckbox_txt.Checked == true && ckbox_xlsx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".rar") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".xlsx") == true) i--; }
+            //    else
+            //    if (ckbox_txt.Checked == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "txt") == true) i--; }
+            //    else if (ckbox_txt.Checked == true && ckbox_xlsx.Checked == true)
+            //    { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".txt") == true || ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), ".xlsx") == true) i--; }
+            //    else
+            //    if (ckbox_xlsx.Checked == true) { if (ContainsSubstring(listBoxFiles.Items[i - 1].ToString(), "xlsx") == true) i--; }
+            //    else
+            //    {
+            //        listBoxFiles.Items.RemoveAt(i - 1);
+            //        i--;
+            //    }
+
+            int i = listBoxFiles.Items.Count;
+
+            List<string> extensions = new List<string>();
+            if (ckbox_docx.Checked) extensions.Add(".docx");
+            if (ckbox_pdf.Checked) extensions.Add(".pdf");
+            if (ckbox_pptx.Checked) extensions.Add(".pptx");
+            if (ckbox_rar.Checked) extensions.Add(".rar");
+            if (ckbox_txt.Checked) extensions.Add(".txt");
+            if (ckbox_xlsx.Checked) extensions.Add(".xlsx");
+
+            while (i != 0)
             {
-                txt_search.Text = "Nhập từ khóa";
-                txt_search.TextAlign = HorizontalAlignment.Center;
-                txt_search.ForeColor = Color.Silver;
+                string currentItem = listBoxFiles.Items[i - 1].ToString();
+
+                if (ContainsSubstring(currentItem, "Folder") || ContainsSubstring(currentItem, "folder"))
+                {
+                    i--;
+                    continue;
+                }
+
+                bool matchesExtension = extensions.Any(ext => ContainsSubstring(currentItem, ext));
+                if (!matchesExtension)
+                {
+                    listBoxFiles.Items.RemoveAt(i - 1); 
+                }
+                i--;
+            }
+        }
+
+        private void ckbox_docx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbb_filepath.Items.Count == 0)
+            {
+                MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                ckbox_docx.Checked = false;
+            }    
+            else
+            {
+                if (cbb_filepath.Text == "")
+                {
+                    MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+                    ckbox_docx.Checked = false;
+                }
+                else
+                {
+                    //ckbox_docx.Checked = false;
+                    string path = cbb_filepath.Text;
+                    UpdateFileList(path, null);
+
+                    if (path == null) listBoxFiles.Items.Clear();
+                    else UpdateFileList(path, null);
+                    update_ckbox();
+                }
+            }
+        }
+
+        private void ckbox_pdf_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbb_filepath.Items.Count == 0)
+            {
+                MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                ckbox_pdf.Checked = false;
+            }
+            else
+            {
+                if (cbb_filepath.Text == "")
+                {
+                    MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+                    ckbox_pdf.Checked = false;
+                }
+                else
+                {
+                    //ckbox_pdf.Checked = false;
+                    string path = cbb_filepath.Text;
+                    UpdateFileList(path, null);
+
+                    if (path == null) listBoxFiles.Items.Clear();
+                    else UpdateFileList(path, null);
+                    update_ckbox();
+                }
+            }
+        }
+
+        private void ckbox_pptx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbb_filepath.Items.Count == 0)
+            {
+                MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                ckbox_pptx.Checked = false;
+            }
+            else
+            {
+                if (cbb_filepath.Text == "")
+                {
+                    MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+                    ckbox_pptx.Checked = false;
+                }
+                else
+                {
+                    //ckbox_pptx.Checked = false;
+                    string path = cbb_filepath.Text;
+                    UpdateFileList(path, null);
+
+                    if (path == null) listBoxFiles.Items.Clear();
+                    else UpdateFileList(path, null);
+                    update_ckbox();
+                }
+            }
+        }
+
+        private void ckbox_rar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbb_filepath.Items.Count == 0)
+            {
+                MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                ckbox_rar.Checked = false;
+            }
+            else
+            {
+                if (cbb_filepath.Text == "")
+                {
+                    MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+                    ckbox_rar.Checked = false;
+                }
+                else
+                {
+                    //ckbox_rar.Checked = false;
+                    string path = cbb_filepath.Text;
+                    UpdateFileList(path, null);
+
+                    if (path == null) listBoxFiles.Items.Clear();
+                    else UpdateFileList(path, null);
+                    update_ckbox();
+                }
+            }
+        }
+
+        private void ckbox_txt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbb_filepath.Items.Count == 0)
+            {
+                MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                ckbox_txt.Checked = false;
+            }
+            else
+            {
+                if (cbb_filepath.Text == "")
+                {
+                    MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+                    ckbox_txt.Checked = false;
+                }
+                else
+                {
+                    //ckbox_txt.Checked = false;
+                    string path = cbb_filepath.Text;
+                    UpdateFileList(path, null);
+
+                    if (path == null) listBoxFiles.Items.Clear();
+                    else UpdateFileList(path, null);
+                    update_ckbox();
+                }
+            }
+        }
+
+        private void ckbox_xlsx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbb_filepath.Items.Count == 0)
+            {
+                MessageBox.Show("Chưa có nhập filepath", "Lỗi");
+                ckbox_xlsx.Checked = false;
+            }
+            else
+            {
+                if (cbb_filepath.Text == "")
+                {
+                    MessageBox.Show("Chưa có chọn filepath", "Lỗi");
+                    ckbox_xlsx.Checked = false;
+                }
+                else
+                {
+                    //ckbox_xlsx.Checked = false;
+                    string path = cbb_filepath.Text;
+                    UpdateFileList(path, null);
+
+                    if (path == null) listBoxFiles.Items.Clear();
+                    else UpdateFileList(path, null);
+                    update_ckbox();
+                }
             }
         }
     }
