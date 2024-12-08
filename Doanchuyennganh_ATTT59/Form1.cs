@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
 
             // Khởi tạo NotifyIcon
             notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = new Icon(@"M:\Goc Hoc Tap\Đồ án tốt nghiệp\Doanchuyennganh_ATTT59\visual-studio.ico"); // Đường dẫn tới icon 
+            notifyIcon.Icon = new Icon(@"D:\Study\TienAnThatNghiep\eye_icon-icons.com_71204.ico"); // Đường dẫn tới icon 
             notifyIcon.Visible = true;
             notifyIcon.Text = "File Management";
 
@@ -128,13 +128,21 @@ namespace WindowsFormsApp1
         //        UpdateFileList(watcher.Path, e);
         //    });
         //}
-
+        string filename1,filename2,filepath;
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
             {
-                Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n {e.Name} được tạo \n";
-                
+
+                filename2 = Path.GetFileName(e.FullPath);
+                if (filename2 == filename1)
+                {
+                    Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath}\n<<<{e.Name}>>> được chuyển từ <<<{filepath}>>> ====> <<<{e.FullPath}>>> \n ";
+                }
+                else Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath}\n<<<{e.Name}>>> được tạo \n";
+                filename1 = null;   
+                filename2 = null;   
+                filepath = null;
                 //UpdateFileList(watcher.Path, e);
             });
         }
@@ -142,7 +150,10 @@ namespace WindowsFormsApp1
         {
             this.Invoke((MethodInvoker)delegate
             {
-                Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n {e.Name} bị xóa \n";
+                filename1 = Path.GetFileName(e.FullPath);
+                filepath = e.FullPath;
+                string fileName1 = Path.GetFileName(e.FullPath);
+                Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n <<<{{{e.Name}}}>>> bị xóa \n";
                 //UpdateFileList(watcher.Path, e);
             });
         }
@@ -150,7 +161,7 @@ namespace WindowsFormsApp1
         {
             this.Invoke((MethodInvoker)delegate
             {
-                Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n {e.OldName} đổi tên thành {e.Name} \n";
+                Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath}\n <<<{{{e.OldName}}}>>> đổi tên thành <<<{{{e.Name}}}>>> \n";
                 //UpdateFileList(watcher.Path, e);
             });
         }
