@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System.Deployment.Application;
+using System.Security.Principal;
 
 namespace WindowsFormsApp1
 {
@@ -23,18 +24,20 @@ namespace WindowsFormsApp1
         public static Form1 fm1;
         public static Form_Exportlog fm2;
         private NotifyIcon notifyIcon;
-
+        public static string Send_Log_Data;
         public Form1()
         {
             InitializeComponent();
             InitializeFileWatcher();
             RegisterToStartUp();
+            //Disable_ifNOT_Admin();
 
             this.Load += Form1_Load;
 
             // Khởi tạo NotifyIcon
+            string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "eye_icon-icons.com_71204.ico");
             notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = new Icon(@"D:\Study\TienAnThatNghiep\eye_icon-icons.com_71204.ico"); // Đường dẫn tới icon 
+            notifyIcon.Icon = new Icon(iconPath); // Đường dẫn tới icon 
             notifyIcon.Visible = true;
             notifyIcon.Text = "File Management";
 
@@ -49,8 +52,6 @@ namespace WindowsFormsApp1
             notifyIcon.DoubleClick += (s, e) => this.Show();
         }
 
-        public string Log_Data { get; private set; }
-        
         private void InitializeFileWatcher()
         {
             try 
@@ -72,7 +73,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
         }
-
+        
         //////////  START UP WITH WINDOWS
         private static void RegisterToStartUp()
         {
@@ -119,15 +120,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        //function onchange
-        //private void OnChanged(object sender, FileSystemEventArgs e)
-        //{
-        //    this.Invoke((MethodInvoker)delegate
-        //    {
-        //        Log_richTextBox.Text += $" - [{DateTime.Now.ToLocalTime()}] {e.FullPath} \n {e.Name} đã thay đổi \n";
-        //        UpdateFileList(watcher.Path, e);
-        //    });
-        //}
         string filename1,filename2,filepath;
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
@@ -168,8 +160,9 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Send_Log_Data = Log_richTextBox.Text;
         }
+
         private void AddFile_Button_Click(object sender, EventArgs e)
         {
             try
@@ -209,7 +202,6 @@ namespace WindowsFormsApp1
                 }
             }
             catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
-
         }
 
         private void Refresh_Button_Click(object sender, EventArgs e)
@@ -269,15 +261,127 @@ namespace WindowsFormsApp1
 
         private void Log_richTextBox_TextChanged(object sender, EventArgs e)
         {
-            Log_Data = Log_richTextBox.Text;
+            Send_Log_Data = Log_richTextBox.Text;
             string path = cbb_filepath.Text;
             if ( path != "" )
                 UpdateFileList(path, null);
         }
 
+        //Backup : BackupFile_Button_Click = BackupFile + BackupSubDirectories
         private void BackupFile_Button_Click(object sender, EventArgs e)
         {
+            //TẠO 2 HÀM TRONG EVENT CLICK BUTTON XONG GỌI
+            if (FilePath_textBox.Text == "" || FilePath_textBox.Text == "Nhập file path")
+            {
+                MessageBox.Show("File path trống", "Lỗi");
+            }    else
+            {
+                DialogResult r;
+                r = MessageBox.Show("Bạn có chắc muốn backup file vào " + FilePath_textBox.Text + "?", "Backup", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        void BackupFile(string source_Directory, string backup_Directory)
+                        {
+                            // Kiểm tra xem thư mục sao lưu có tồn tại không, nếu không thì tạo mới
+                            if (!Directory.Exists(backup_Directory))
+                            {
+                                Directory.CreateDirectory(backup_Directory);
+                            }
 
+                            foreach (string filePath in Directory.GetFiles(source_Directory))
+                            {
+                                string fileName = Path.GetFileName(filePath);
+                                string dest_FilePath = Path.Combine(backup_Directory, fileName);
+
+                                // Kiểm tra nếu tệp đích đã tồn tại
+                                int count = 1;
+                                while (File.Exists(dest_FilePath))
+                                {
+                                    // Thêm số vào tên tệp
+                                    string fileWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+                                    string extension = Path.GetExtension(fileName);
+                                    dest_FilePath = Path.Combine(backup_Directory, $"{fileWithoutExtension}({count}){extension}");
+                                    count++;
+                                }
+
+                                //backup file
+                                try
+                                {
+                                    File.Copy(filePath, dest_FilePath, true);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Lỗi backup tại " + Path.GetFullPath(Path.Combine(source_Directory, fileName)));
+                                }
+                            }
+                        }
+
+                        //TỪ ĐÂY TRỞ XUỐNG ĐỂ BACKUP THƯ MỤC CON, SỬ DỤNG ĐỆ QUY
+                        void BackupSubDirectories(string source_Directory, string backup_Directory)
+                        {
+                            try
+                            {
+                                // Lấy tất cả các thư mục con trong thư mục gốc
+                                string[] subDirectories = Directory.GetDirectories(source_Directory);
+
+                                // Lặp qua từng thư mục con và đệ quy luôn
+                                foreach (string subDir in subDirectories)
+                                {
+                                    // Tạo thư mục con tương ứng trong thư mục backup
+                                    //string destSubDir = Path.Combine(backup_Directory, Path.GetFileName(subDir));
+                                    string destSubDir = Path.Combine(backup_Directory, new DirectoryInfo(subDir).Name);
+
+                                    // Tạo thư mục đích nếu chưa tồn tại
+                                    if (!Directory.Exists(destSubDir))
+                                    {
+                                        Directory.CreateDirectory(destSubDir);
+                                    }
+
+                                    // Đệ quy sao lưu thư mục con
+                                    BackupFile(subDir, destSubDir);  // Sao lưu tệp trong thư mục con
+                                    BackupSubDirectories(subDir, destSubDir);  // Sao lưu thư mục con của thư mục con , CHỖ NÀY LÀ ĐỆ QUY NÈ
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Lỗi sao lưu thư mục con: {ex.Message}", "Lỗi");
+
+                            }
+                        }
+
+                        //lấy địa chỉ biến watcher đang theo dõi làm nguồn cần backup
+                        if (num <= 0)
+                        {
+                            MessageBox.Show("không có file đang theo dõi");
+                            return;
+                        }
+                        for (int i = 0; i < num; i++)
+                        {
+                            try
+                            {
+                                string source_Dir = watcher[i].Path;
+                                string source_Dir_place = new DirectoryInfo(watcher[i].Path).Name;
+
+                                // Địa chỉ sao lưu
+                                string BackupPlace = FilePath_textBox.Text;
+
+                                //tạo thư mục ở nơi backup
+                                string backup_Dir = Path.Combine(BackupPlace, source_Dir_place);
+                                if (!Directory.Exists(backup_Dir)) { Directory.CreateDirectory(backup_Dir); }
+                                //MessageBox.Show($"source_Dir_place : {source_Dir_place}", "Lỗi");
+                                BackupSubDirectories(source_Dir, backup_Dir);
+                                BackupFile(source_Dir, backup_Dir);
+                            }
+                            catch (Exception ex) { continue; }
+                        }
+
+                        MessageBox.Show("Backup thành công","Backup");
+                    }
+                    catch (Exception ex) { MessageBox.Show($"Lỗi : {ex.Message}", "Lỗi"); }
+                }
+            }
         }
 
         private void btn_browser_Click(object sender, EventArgs e)
@@ -393,17 +497,19 @@ namespace WindowsFormsApp1
         {
             string path = cbb_filepath.Text;
             UpdateFileList(path, null);
+            FilePath_textBox.Text = path;
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult r;
-            r = MessageBox.Show("Bạn có muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (r == DialogResult.Yes)
-            {
-                fm1 = new Form1();
-                fm1.Close();
-            }
+            //DialogResult r;
+            //r = MessageBox.Show("Bạn có muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            //if (r == DialogResult.Yes)
+            //{
+            //    fm1 = new Form1();
+            //    fm1.Close();
+            //}
+            //else return;    
         }
         private void btn_refresh_Click(object sender, EventArgs e)
         {  
@@ -699,6 +805,16 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r;
+            r = MessageBox.Show("Bạn có muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
         private void ckbox_txt_CheckedChanged(object sender, EventArgs e)
         {
             if (cbb_filepath.Items.Count == 0)
@@ -750,6 +866,34 @@ namespace WindowsFormsApp1
                     else UpdateFileList(path, null);
                     update_ckbox();
                 }
+            }
+        }
+
+        //Check Run as Admin : check_Administrator + DisableAllButtons + Disable_ifNOT_Admin
+        private bool check_Administrator()
+        {
+            WindowsIdentity currentUser = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(currentUser);
+
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+        private void DisableAllButtons()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button)
+                {
+                    Button btn = (Button)control;
+                    btn.Enabled = false;  // Vô hiệu hóa button
+                }
+            }
+        }
+        private void Disable_ifNOT_Admin()
+        {
+            if (!check_Administrator())
+            {
+                MessageBox.Show("Không chạy dưới quyền Administrator", "Run as Administrator");
+                DisableAllButtons();   
             }
         }
     }

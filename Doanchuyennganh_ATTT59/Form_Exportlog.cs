@@ -14,7 +14,6 @@ namespace WindowsFormsApp1
 {
     public partial class Form_Exportlog : Form
     {
-        public static Form1 fm1;
         public Form_Exportlog()
         {
             InitializeComponent();
@@ -87,7 +86,7 @@ namespace WindowsFormsApp1
             content = now + "\n" + content; // thêm thời gian trên đầu file log
 
             // Tạo tên file từ thời gian hiện tại
-            string fileName = $"log on {now:dd-MM-yyyy HH-mm}.txt";
+            string fileName = $"log_on_{now:dd-MM-yyyy HH-mm}.txt";
 
             // Kết hợp đường dẫn với tên file
             string logFilePath = Path.Combine(filePath, fileName);
@@ -126,8 +125,8 @@ namespace WindowsFormsApp1
         }
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            fm1 = new Form1();
-            if (fm1.Log_Data == "")
+            string Log_Data = Form1.Send_Log_Data;
+            if (Log_Data == "")
             {
                 MessageBox.Show("Chưa có log", "Lỗi");
             }
@@ -137,7 +136,7 @@ namespace WindowsFormsApp1
                 {
                     if (check_filePath(FilePath_textBox.Text) == true)
                     {
-                        Export_Log_function(FilePath_textBox.Text, fm1.Log_Data);
+                        Export_Log_function(FilePath_textBox.Text, Log_Data);
                         this.Close();
                     }
                 }
@@ -156,9 +155,5 @@ namespace WindowsFormsApp1
             //}
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

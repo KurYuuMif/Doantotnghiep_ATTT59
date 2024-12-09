@@ -44,13 +44,14 @@ namespace WindowsFormsApp1
             this.btn_log = new System.Windows.Forms.Button();
             this.cbb_filepath = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.ckbox_docx = new System.Windows.Forms.CheckBox();
             this.ckbox_pdf = new System.Windows.Forms.CheckBox();
             this.ckbox_txt = new System.Windows.Forms.CheckBox();
             this.ckbox_pptx = new System.Windows.Forms.CheckBox();
             this.ckbox_xlsx = new System.Windows.Forms.CheckBox();
             this.ckbox_rar = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Refresh_Button
@@ -110,7 +111,7 @@ namespace WindowsFormsApp1
             this.Log_Label.AutoSize = true;
             this.Log_Label.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Log_Label.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.Log_Label.Location = new System.Drawing.Point(464, 14);
+            this.Log_Label.Location = new System.Drawing.Point(453, 9);
             this.Log_Label.Name = "Log_Label";
             this.Log_Label.Size = new System.Drawing.Size(66, 34);
             this.Log_Label.TabIndex = 5;
@@ -121,7 +122,7 @@ namespace WindowsFormsApp1
             // 
             this.FilePath_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FilePath_textBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.FilePath_textBox.Location = new System.Drawing.Point(170, 485);
+            this.FilePath_textBox.Location = new System.Drawing.Point(170, 513);
             this.FilePath_textBox.Multiline = true;
             this.FilePath_textBox.Name = "FilePath_textBox";
             this.FilePath_textBox.Size = new System.Drawing.Size(557, 30);
@@ -137,7 +138,7 @@ namespace WindowsFormsApp1
             this.FilePath_label.AutoSize = true;
             this.FilePath_label.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FilePath_label.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.FilePath_label.Location = new System.Drawing.Point(382, 448);
+            this.FilePath_label.Location = new System.Drawing.Point(382, 476);
             this.FilePath_label.Name = "FilePath_label";
             this.FilePath_label.Size = new System.Drawing.Size(137, 34);
             this.FilePath_label.TabIndex = 7;
@@ -147,9 +148,9 @@ namespace WindowsFormsApp1
             // 
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.ItemHeight = 16;
-            this.listBoxFiles.Location = new System.Drawing.Point(859, 239);
+            this.listBoxFiles.Location = new System.Drawing.Point(859, 267);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(349, 276);
+            this.listBoxFiles.Size = new System.Drawing.Size(336, 276);
             this.listBoxFiles.TabIndex = 8;
             // 
             // Log_richTextBox
@@ -157,7 +158,7 @@ namespace WindowsFormsApp1
             this.Log_richTextBox.Location = new System.Drawing.Point(170, 51);
             this.Log_richTextBox.Name = "Log_richTextBox";
             this.Log_richTextBox.ReadOnly = true;
-            this.Log_richTextBox.Size = new System.Drawing.Size(652, 383);
+            this.Log_richTextBox.Size = new System.Drawing.Size(652, 422);
             this.Log_richTextBox.TabIndex = 9;
             this.Log_richTextBox.Text = "";
             this.Log_richTextBox.TextChanged += new System.EventHandler(this.Log_richTextBox_TextChanged);
@@ -167,7 +168,7 @@ namespace WindowsFormsApp1
             this.btn_browser.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_browser.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_browser.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_browser.Location = new System.Drawing.Point(742, 485);
+            this.btn_browser.Location = new System.Drawing.Point(742, 513);
             this.btn_browser.Name = "btn_browser";
             this.btn_browser.Size = new System.Drawing.Size(80, 30);
             this.btn_browser.TabIndex = 10;
@@ -179,10 +180,10 @@ namespace WindowsFormsApp1
             // 
             this.txt_search.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_search.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txt_search.Location = new System.Drawing.Point(859, 123);
+            this.txt_search.Location = new System.Drawing.Point(859, 151);
             this.txt_search.Multiline = true;
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(349, 30);
+            this.txt_search.Size = new System.Drawing.Size(336, 30);
             this.txt_search.TabIndex = 11;
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.Enter += new System.EventHandler(this.txt_search_Enter);
@@ -193,7 +194,7 @@ namespace WindowsFormsApp1
             this.btn_timkiem.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_timkiem.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_timkiem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_timkiem.Location = new System.Drawing.Point(880, 159);
+            this.btn_timkiem.Location = new System.Drawing.Point(880, 187);
             this.btn_timkiem.Name = "btn_timkiem";
             this.btn_timkiem.Size = new System.Drawing.Size(86, 34);
             this.btn_timkiem.TabIndex = 48;
@@ -219,7 +220,7 @@ namespace WindowsFormsApp1
             this.cbb_filepath.FormattingEnabled = true;
             this.cbb_filepath.Location = new System.Drawing.Point(859, 83);
             this.cbb_filepath.Name = "cbb_filepath";
-            this.cbb_filepath.Size = new System.Drawing.Size(349, 24);
+            this.cbb_filepath.Size = new System.Drawing.Size(336, 24);
             this.cbb_filepath.TabIndex = 50;
             this.cbb_filepath.SelectedIndexChanged += new System.EventHandler(this.cbb_filepath_SelectedIndexChanged);
             // 
@@ -235,23 +236,23 @@ namespace WindowsFormsApp1
             this.label1.Text = "Danh sách các filepath đang theo dõi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
+            // btn_refresh
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(1109, 159);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 34);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btn_refresh_Click);
+            this.btn_refresh.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_refresh.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_refresh.Location = new System.Drawing.Point(1093, 187);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(86, 34);
+            this.btn_refresh.TabIndex = 52;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = false;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // ckbox_docx
             // 
             this.ckbox_docx.AutoSize = true;
-            this.ckbox_docx.Location = new System.Drawing.Point(859, 203);
+            this.ckbox_docx.Location = new System.Drawing.Point(859, 231);
             this.ckbox_docx.Name = "ckbox_docx";
             this.ckbox_docx.Size = new System.Drawing.Size(61, 20);
             this.ckbox_docx.TabIndex = 53;
@@ -262,7 +263,7 @@ namespace WindowsFormsApp1
             // ckbox_pdf
             // 
             this.ckbox_pdf.AutoSize = true;
-            this.ckbox_pdf.Location = new System.Drawing.Point(919, 203);
+            this.ckbox_pdf.Location = new System.Drawing.Point(919, 231);
             this.ckbox_pdf.Name = "ckbox_pdf";
             this.ckbox_pdf.Size = new System.Drawing.Size(51, 20);
             this.ckbox_pdf.TabIndex = 54;
@@ -273,7 +274,7 @@ namespace WindowsFormsApp1
             // ckbox_txt
             // 
             this.ckbox_txt.AutoSize = true;
-            this.ckbox_txt.Location = new System.Drawing.Point(1093, 203);
+            this.ckbox_txt.Location = new System.Drawing.Point(1093, 231);
             this.ckbox_txt.Name = "ckbox_txt";
             this.ckbox_txt.Size = new System.Drawing.Size(44, 20);
             this.ckbox_txt.TabIndex = 55;
@@ -284,7 +285,7 @@ namespace WindowsFormsApp1
             // ckbox_pptx
             // 
             this.ckbox_pptx.AutoSize = true;
-            this.ckbox_pptx.Location = new System.Drawing.Point(976, 203);
+            this.ckbox_pptx.Location = new System.Drawing.Point(976, 231);
             this.ckbox_pptx.Name = "ckbox_pptx";
             this.ckbox_pptx.Size = new System.Drawing.Size(57, 20);
             this.ckbox_pptx.TabIndex = 56;
@@ -295,7 +296,7 @@ namespace WindowsFormsApp1
             // ckbox_xlsx
             // 
             this.ckbox_xlsx.AutoSize = true;
-            this.ckbox_xlsx.Location = new System.Drawing.Point(1141, 203);
+            this.ckbox_xlsx.Location = new System.Drawing.Point(1141, 231);
             this.ckbox_xlsx.Name = "ckbox_xlsx";
             this.ckbox_xlsx.Size = new System.Drawing.Size(54, 20);
             this.ckbox_xlsx.TabIndex = 57;
@@ -306,7 +307,7 @@ namespace WindowsFormsApp1
             // ckbox_rar
             // 
             this.ckbox_rar.AutoSize = true;
-            this.ckbox_rar.Location = new System.Drawing.Point(1039, 203);
+            this.ckbox_rar.Location = new System.Drawing.Point(1039, 231);
             this.ckbox_rar.Name = "ckbox_rar";
             this.ckbox_rar.Size = new System.Drawing.Size(48, 20);
             this.ckbox_rar.TabIndex = 58;
@@ -314,18 +315,31 @@ namespace WindowsFormsApp1
             this.ckbox_rar.UseVisualStyleBackColor = true;
             this.ckbox_rar.CheckedChanged += new System.EventHandler(this.ckbox_rar_CheckedChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(988, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 24);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Tìm kiếm ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 555);
+            this.ClientSize = new System.Drawing.Size(1218, 566);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ckbox_rar);
             this.Controls.Add(this.ckbox_xlsx);
             this.Controls.Add(this.ckbox_pptx);
             this.Controls.Add(this.ckbox_txt);
             this.Controls.Add(this.ckbox_pdf);
             this.Controls.Add(this.ckbox_docx);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbb_filepath);
             this.Controls.Add(this.btn_log);
@@ -343,6 +357,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.Refresh_Button);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -366,13 +381,14 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btn_log;
         private System.Windows.Forms.ComboBox cbb_filepath;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.CheckBox ckbox_docx;
         private System.Windows.Forms.CheckBox ckbox_pdf;
         private System.Windows.Forms.CheckBox ckbox_txt;
         private System.Windows.Forms.CheckBox ckbox_pptx;
         private System.Windows.Forms.CheckBox ckbox_xlsx;
         private System.Windows.Forms.CheckBox ckbox_rar;
+        private System.Windows.Forms.Label label2;
     }
 }
 

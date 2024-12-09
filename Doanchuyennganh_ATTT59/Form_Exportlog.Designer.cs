@@ -46,7 +46,6 @@
             this.label1.Size = new System.Drawing.Size(548, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nhập đường dẫn file log phía dưới :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FilePath_textBox
             // 
